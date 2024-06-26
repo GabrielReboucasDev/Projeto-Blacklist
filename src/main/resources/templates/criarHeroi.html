@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-Br" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BLACKLIST</title>
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	<script th:src="@{/js/script.js}" type="text/javascript"></script>
+</head>
+<body id="criarHeroi">
+	<div class="text-center" id="criarHeroiDiv">
+	<label><h2>REGRAS DO JOGO</h2></label>
+		<div id="regrasJogo"><h5>
+				<li>VENÇA OS 10 MAIORES VILÕES DO REINO. (DICA: SIGA O RANKING EM ORDEM DECRESCENTE!)</li>
+				<li>O VALOR DO ATAQUE É A SOMA DE: VALOR DO DADO + ATAQUE.</li>
+				<li>O VALOR DA DEFESA É A SOMA DE: VALOR DO DADO + DEFESA.</li>
+				<li>AMBOS ATACAM E DEFENDEM PARA COMPLETAR UMA RODADA.</li>
+				<li>VENCE A BATALHA QUEM ZERAR OS PONTOS DE VIDA DO OPONENTE.</li>
+				<li>EM CASO DE VITÓRIA, O HERÓI SOBE DE NÍVEL E GANHA 5 PONTOS PARA SEREM DISTRIBUÍDOS.</li>
+				<li>EM CASO DE DERROTA, É DECRETADO GAME OVER.</li>
+				<li>REMÉDIOS RESTAURAM ATÉ +10 DA BARRA DE VIDA. (QUANTIDADE LIMITADA)</li>
+				<li>MUNIÇÕES ADICIONAM +3 NO ATAQUE NA RODADA SEGUINTE. (QUANTIDADE LIMITADA)</li>
+				<li>MANTENHA-SE VIVO!</li>
+			</ul>
+		</h5></div>
+		<form th:action="@{/processarNome}" method="post" class="d-flex justify-content-center align-items-center" id="nomeForm">
+			<label for="nome" class="col-form-label" id="heroi" ><h5>INFORME SEU NOME: </h5></label>
+			<input class="form-control" type="text" id="nome" name="nome" maxlength="20" required>
+			<button class="btn btn-light" type="button" id="botaoComecar" onclick="verificarNome()">COMEÇAR</button>
+		</form>
+		<div id="mensagemErro"></div>
+	</div>
+	<div id="loading">
+        <div id="loading-circle"></div>
+    </div>
+</body>
+</html>

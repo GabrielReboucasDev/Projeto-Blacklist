@@ -1,0 +1,169 @@
+<div th:fragment="divDistribuirHeroi">
+	<div class="modal fade" id="modalDistribuirHeroi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Distribuir Pontos:</h5>
+				</div>
+				<div class="modal-body">
+					<form th:each="pontosHeroi : ${application['distribuirHeroi']}">
+						<div class="d-flex align-items-center">
+							<label>Nome: </label>
+							<input class="form-control" type="text" th:value="${pontosHeroi.nome}" id="idNome" disabled />
+						</div>
+						<div id="divPontosDisponiveis">
+							<span th:text="${pontosHeroi.id}" id="idPontos" hidden />
+							<span th:text="${pontosHeroi.pontos}" id="distribuirPontos" hidden />
+							<label>Pontos Disponíveis: </label> <span id="adcPontos" />
+						</div>
+						<div class="d-flex align-items-center">
+							<label>Vida: </label>
+							<input class="form-control" type="number" th:value="${pontosHeroi.vida}" id="pontosVida" disabled />
+							<input class="form-control" type="number" th:value="${pontosHeroi.vida}" id="adcVida" oninput="updateValor()" />
+						</div>
+						<div class="d-flex align-items-center">
+							<label>Ataque: </label>
+							<input class="form-control" type="number" th:value="${pontosHeroi.ataque}" id="pontosAtaque" disabled />
+							<input class="form-control" type="number" th:value="${pontosHeroi.ataque}" id="adcAtaque" oninput="updateValor()" />
+						</div>
+						<div class="d-flex align-items-center">
+							<label>Defesa: </label>
+							<input class="form-control" type="number" th:value="${pontosHeroi.defesa}" id="pontosDefesa" disabled />
+							<input class="form-control" type="number" th:value="${pontosHeroi.defesa}" id="adcDefesa" oninput="updateValor()" />
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" th:onclick="fecharModalDistribuirHeroi()">Sair</button>
+					<button type="button" class="btn btn-danger" th:onclick="resetarPontos()">Resetar</button>
+					<button type="button" class="btn btn-dark" th:onclick="salvarPontos()">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div th:fragment="divInfoHeroi">
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalInfoHeroi">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Informações do Herói:</h5>
+                </div>
+                <div class="modal-body">
+                    <form th:each="infoHeroi : ${application['inforHeroi']}" class="row">
+                        <div class="col-md-6">
+                            <img th:src="${infoHeroi.imagem}" id="imgCompletoHeroi" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <label>Nome: </label>
+                                <input class="form-control" type="text" th:value="${infoHeroi.nome}" disabled/>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label>Level: </label>
+                                <input class="form-control" type="text" th:value="${infoHeroi.level}" disabled/>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label>Pontos: </label>
+                                <input class="form-control" type="text" th:value="${infoHeroi.pontos}" disabled/>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label>Vida: </label>
+                                <input class="form-control" type="text" th:value="${infoHeroi.vida}" disabled/>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label>Ataque: </label>
+                                <input class="form-control" type="text" th:value="${infoHeroi.ataque}" disabled/>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label>Defesa: </label>
+                                <input class="form-control" type="text" th:value="${infoHeroi.defesa}" disabled/>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center" id="historiaHeroi">
+                            <input class="form-control" type="text" th:value="${infoHeroi.historia}" disabled/>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" th:onclick="fecharModalInfoHeroi()">Sair</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="divInfoVilao">
+	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalInfoVilao">
+  		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Informações do Vilão:</h5>
+				</div>
+				<div class="modal-body">
+					<form th:each="infoVilao : ${application['inforVilao']}" class="row">
+						<div class="col-md-6">
+							<img th:src="${infoVilao.imagem}" id="imgCompletoVilao" class="img-fluid">
+						</div>
+                        <div class="col-md-6">	
+							<div class="d-flex align-items-center">
+								<label>Nome: </label>
+								<input class="form-control" type="text" th:value="${infoVilao.nome}" disabled />
+							</div>
+							<div class="d-flex align-items-center">
+								<label>Level: </label>
+								<input class="form-control" type="text" th:value="${infoVilao.level}" disabled />
+							</div>
+							<div class="d-flex align-items-center">
+								<label>Posição: </label>
+								<input class="form-control" type="text" th:value="${infoVilao.posicao}" disabled />
+							</div>
+							<div class="d-flex align-items-center">
+								<label>Vida: </label>
+								<input class="form-control" type="text" th:value="${infoVilao.vida}" disabled />
+							</div>
+							<div class="d-flex align-items-center">
+								<label>Ataque: </label>
+								<input class="form-control" type="text" th:value="${infoVilao.ataque}" disabled />
+							</div>
+							<div class="d-flex align-items-center">
+								<label>Defesa: </label>
+								<input class="form-control" type="text" th:value="${infoVilao.defesa}" disabled />
+							</div>
+                        </div>
+                        <div class="d-flex align-items-center" id="historiaVilao">	
+							<input class="form-control" type="text" th:value="${infoVilao.historia}" disabled />
+						</div>	
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" th:onclick="fecharModalInfoVilao()">Sair</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div th:fragment="divDeletarHeroi">
+	<div class="modal fade" id="modalDeletarHeroi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Deletar Heroi</h5>
+				</div>
+				<div class="modal-body">
+					<div id="deletarHeroi">
+						Deseja deletar o Heroi: <span th:text="${deletarNome}" id="deletarNome" /> ?
+						<span th:text="${deletarId}" id="deletarId" hidden />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" th:onclick="fecharModalDeletarHeroi()">Cancelar</button>
+					<button type="button" class="btn btn-danger" th:deletarId="${deletarId}" th:deletarNome="${deletarNome}"
+						th:onclick="deletar(this.getAttribute('deletarId'), this.getAttribute('deletarNome'))">Confirmar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

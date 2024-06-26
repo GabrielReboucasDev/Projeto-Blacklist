@@ -1,0 +1,481 @@
+@charset "utf-8";
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+.btn:hover {
+	transform: scale(1.1);
+	border: 2px solid rgb(255, 255, 255);
+}
+
+#nome {
+	width: 200px;
+}
+
+#mensagemErro {
+	color: red;
+	margin-top: 10px;
+	font-size: 0.8em;
+}
+
+#regrasJogo {
+	background-color: white;
+	color: black;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+#botaoComecar,
+#heroi,
+#nome {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#home,
+#criarHeroi,
+#batalha,
+#continueJornada,
+#finalJornada {
+	background-color: black;
+	color: white;
+}
+
+#listarViloes {
+	background-color: black;
+}
+
+#nomeHeroi,
+#btnHeroi,
+#btnDistribuir,
+#btnDeletar,
+#btnVilao {
+	width: 130px;
+	height: 50px;
+	border: none;
+	border-radius: 0;
+	font-size: 16px;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#heroiBotoes {
+	margin-left: 10px;
+}
+
+#btnDeletar {
+	background-color: orange;
+}
+
+#btnDeletar:hover {
+	transform: scale(1.1);
+	border: 0px solid rgb(255, 255, 255);
+}
+
+#btnBatalha:hover {
+	transform: none;
+	opacity: 1 !important;
+	border: 4px solid rgb(255, 0, 0);
+}
+
+#btnBatalha {
+	border: none;
+	border-radius: 0;
+	font-size: 20px;
+	color: white;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#tabelaGeral {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+#tabelaVilao {
+	width: 70%;
+	float: right;
+}
+
+#tabelaHeroi {
+	width: 30%;
+	float: left;
+}
+
+#imgLogoHeroi {
+	cursor: pointer;
+	width: 250px;
+	height: 250px;
+}
+
+#imgLogoHeroi:hover {
+	transform: scale(1.1);
+	border: 0px solid rgb(255, 255, 255);
+}
+
+#imgLogoVilao {
+	cursor: pointer;
+	width: 350px;
+	height: 62px;
+	border-left: 10px solid black;
+	border-right: 10px solid black;
+	border-top: 5px solid black;
+	border-bottom: 5px solid black;
+}
+
+#imgLogoVilao:hover {
+	transform: scale(1.01);
+	border: 0px solid rgb(255, 255, 255);
+}
+
+#imgCompletoHeroi,
+#imgCompletoVilao {
+	width: 350px;
+	height: 280px;
+}
+
+#heroiImagem,
+#vilaoImagem {
+	display: flex;
+	align-items: center;
+}
+
+#historiaHeroi,
+#historiaVilao {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#divPontosDisponiveis {
+	margin-bottom: 15px;
+}
+
+#deletarHeroi {
+	text-align: center;
+}
+
+#loading {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+}
+
+#loading-circle {
+	border: 8px solid transparent;
+	border-top: 8px solid #ffffff;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	animation: spin 1s linear infinite;
+}
+
+
+#loading-container {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+}
+
+#progress-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+	color: #fff;
+}
+
+#progress-bar {
+	width: 300px;
+	height: 20px;
+	background-color: #708090;
+	border-radius: 10px;
+	overflow: hidden;
+	display: flex;
+	align-items: stretch;
+}
+
+#progress-bar-inner {
+	height: 100%;
+	width: 0;
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+#progress-info {
+	margin-top: 10px;
+}
+
+.modal-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.d-flex {
+	margin-bottom: 10px;
+}
+
+label {
+	margin-right: 10px;
+}
+
+.form-control {
+	width: 80px;
+	margin-left: 10px;
+	text-align: center;
+}
+
+#imgBatalhaHeroi,
+#imgBatalhaVilao {
+	width: 340px;
+	height: 660px;
+}
+
+#nomeIconHeroi,
+#levelIconHeroi,
+#ataqueIconHeroi,
+#defesaIconHeroi,
+#nomeIconVilao,
+#levelIconVilao,
+#ataqueIconVilao,
+#defesaIconVilao {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgb(255, 255, 255);
+	background-color: rgb(192, 192, 192);
+}
+
+#pocaoIconHeroi,
+#magiaIconHeroi,
+#pocaoIconVilao,
+#magiaIconVilao {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgb(255, 255, 255);
+	background-color: rgb(100, 103, 123);
+}
+
+#btnMagiaHeroi:hover,
+#btnPocaoHeroi:hover,
+#btnMagiaVilao:hover,
+#btnPocaoVilao:hover {
+	transform: scale(1.1);
+	border: 3px solid rgb(128, 255, 0);
+}
+
+#heroiNome,
+#heroiLevel,
+#heroiAtaque,
+#heroiDefesa,
+#vilaoNome,
+#vilaoLevel,
+#vilaoAtaque,
+#vilaoDefesa {
+	font-weight: bold;
+	width: 100px;
+	height: 50px;
+	font-size: 16px;
+	color: rgb(0, 0, 0);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgb(255, 255, 255);
+	background-color: rgb(192, 192, 192);
+}
+
+#heroiPocao,
+#heroiMagia,
+#vilaoPocao,
+#vilaoMagia {
+	font-weight: bold;
+	width: 100px;
+	height: 50px;
+	font-size: 16px;
+	color: rgb(0, 0, 0);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+#btnMagiaHeroi,
+#btnPocaoHeroi,
+#btnMagiaVilao,
+#btnPocaoVilao {
+	width: 100px;
+	height: 50px;
+	border: 1px solid rgb(255, 255, 255);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0;
+	background-color: rgb(100, 103, 123);
+}
+
+#divBatalha {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+#divDados {
+	flex: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	margin-top: 7px;
+}
+
+#divBtnRolarDados {
+	flex: 10%;
+	margin-top: 7px;
+}
+
+#tabelaBatalha {
+	display: flex;
+	justify-content: space-between;
+}
+
+#tdHeroiInfo,
+#tdVilaoInfo {
+	width: 100px;
+	height: 300px;
+}
+
+#tdheroiIcon,
+#tdVilaoIcon {
+	width: 50px;
+	height: 50px;
+}
+
+#tdBatalha {
+	width: 350px;
+	height: 660px;
+}
+
+#tdVidaHeroi,
+#tdVidaVilao {
+	width: 155px;
+	height: 360px;
+	position: relative;
+}
+
+.resultado-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.resultado-icone {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+}
+
+.bar-container {
+	position: relative;
+}
+
+.bar {
+	width: 100%;
+	height: 100%;
+	background-color: rgb(193, 0, 0);
+	transition: height 0.6s ease;
+	font-weight: bold;
+	position: absolute;
+	bottom: 0;
+}
+
+.bar-background {
+	width: 100%;
+	height: 100%;
+	background-color: rgb(64, 0, 0);
+	font-weight: bold;
+	position: absolute;
+	bottom: 0;
+}
+
+#divHistorico {
+	flex: 80%;
+	margin-top: 5px;
+	margin: 0px;
+	border: 4px solid rgb(255, 255, 255);
+	width: 400px;
+	background-color: rgb(231, 232, 233);
+	color: rgb(0, 0, 0);
+}
+
+#historicoLista {
+	font-size: 10px;
+	margin: 0px;
+	display: inline-block;
+	font-weight: bold;
+	color: rgb(0, 0, 0);
+	padding: 10px;
+}
+
+#btnRolarDados {
+	width: 150px;
+	height: 50px;
+}
+
+#dadoHeroi,
+#dadoVilao {
+	width: 50px;
+	height: 50px;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	margin: 1px;
+	border: 4px solid rgb(255, 255, 255);
+	text-align: center;
+	display: inline-block;
+	background-color: rgb(231, 232, 233);
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	border-radius: 8px;
+	text-shadow: 0 0 5px white;
+}
+
+.spinning {
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+#tituloResultado,
+#resultadoBatalha {
+	color: black;
+}
