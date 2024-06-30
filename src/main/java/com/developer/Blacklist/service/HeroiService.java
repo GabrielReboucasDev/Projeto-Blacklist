@@ -59,10 +59,10 @@ public class HeroiService {
 
 	public void atualizarHeroiBatalha(String idHeroiBatalha, String qtdLevelHeroi, String qtdMagiaHeroi, String qtdPocaoHeroi) {
 		Integer idHeroi = Integer.parseInt(idHeroiBatalha);
-		Integer pontosHeroi = heroiRepository.buscarPontosHeroi(idHeroi) + 3;
+		Integer pontosHeroi = heroiRepository.buscarPontosHeroi(idHeroi) + 5;
 		Integer levelHeroi = Integer.parseInt(qtdLevelHeroi) + 1;
 		Integer magiaHeroi = Integer.parseInt(qtdMagiaHeroi) + 1;
-		Integer pocaoHeroi = Integer.parseInt(qtdPocaoHeroi) + 1;
+		Integer pocaoHeroi = Integer.parseInt(qtdPocaoHeroi) + 2;
 		heroiRepository.atualizarHeroiBatalha(idHeroi, pontosHeroi, levelHeroi, magiaHeroi, pocaoHeroi);
 	}
 
